@@ -1,0 +1,50 @@
+content:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "_posts/**"
+          - "_includes/**"
+          - "_layouts/**"
+          - "index.md"
+          - "about.md"
+
+styling:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "assets/css/**"
+          - "_sass/**"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+          - ".github/labeler.yml"
+
+container:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "Dockerfile"
+          - ".dockerignore"
+
+infrastructure:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "terraform/**"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "Gemfile"
+          - "Gemfile.lock"
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+          - "docs/**"
+
+config:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "_config.yml"
+          - ".markdownlint.json"
+          - ".hadolint.yaml"
