@@ -13,6 +13,6 @@ Lane is the more interesting selection from a strategic standpoint. The Ravens h
 
 Whether Lane plays a hundred snaps in his rookie season or six hundred will depend on how quickly he picks up the route tree. But the talent is real, and the need was acute. On both counts, Day Two graded out well.
 
-*Sources: Baltimore Ravens (2026); CBS Baltimore (2026); NFL.com (2026).*
+*Sources: Baltimore Ravens (2026d); ESPN (2026a); NFL.com (2026).*
 
 {% include vote-widget.html %}
