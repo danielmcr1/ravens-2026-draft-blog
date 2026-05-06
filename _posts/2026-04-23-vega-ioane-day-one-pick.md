@@ -13,6 +13,6 @@ For a young head coach, building outwards from the offensive line is also a cult
 
 The remaining ten picks would test whether that philosophy held all the way down the board. Spoiler: largely, it did.
 
-*Sources: Baltimore Ravens (2026); ESPN (2026); Pro Football Focus (2026).*
+*Sources: Baltimore Ravens (2026c, 2026d); ESPN (2026a, 2026b); NFL.com (2026).*
 
 {% include vote-widget.html %}
