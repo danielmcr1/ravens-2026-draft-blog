@@ -1,0 +1,21 @@
+title: Ravens 2026 Draft Blog
+description: A blog covering the Baltimore Ravens 2026 NFL Draft class, built as BPP Level 5 DevOps coursework demonstrating a full GitHub Actions CI/CD pipeline.
+author: danielmcr1
+baseurl: "/ravens-2026-draft-blog"
+url: "https://danielmcr1.github.io"
+
+theme: minima
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
+  - terraform
+  - Dockerfile
+  - README.md
