@@ -1,0 +1,134 @@
+<div class="vote-widget" id="voteWidget">
+  <h3>Best Pick of the 2026 Class — Cast Your Vote</h3>
+  <p class="vote-intro">Pick the player you think will have the biggest impact on the Ravens' 2026 season. One vote per browser. Results update live.</p>
+
+  <div class="vote-options" id="voteOptions">
+    <button class="vote-btn" data-pick="ioane">Vega Ioane (G, R1.14)</button>
+    <button class="vote-btn" data-pick="young">Zion Young (EDGE, R2.45)</button>
+    <button class="vote-btn" data-pick="lane">Ja'Kobi Lane (WR, R3.80)</button>
+    <button class="vote-btn" data-pick="sarratt">Elijah Sarratt (WR, R4.115)</button>
+    <button class="vote-btn" data-pick="hibner">Matthew Hibner (TE, R4.133)</button>
+    <button class="vote-btn" data-pick="rivers">Chandler Rivers (CB, R5.162)</button>
+    <button class="vote-btn" data-pick="cuevas">Josh Cuevas (TE, R5.173)</button>
+    <button class="vote-btn" data-pick="randall">Adam Randall (RB, R5.174)</button>
+    <button class="vote-btn" data-pick="eckley">Ryan Eckley (P, R6.211)</button>
+    <button class="vote-btn" data-pick="benny">Rayshaun Benny (DT, R7.250)</button>
+    <button class="vote-btn" data-pick="beerntsen">Evan Beerntsen (G, R7.253)</button>
+  </div>
+
+  <div class="vote-results" id="voteResults" style="display:none;">
+    <h4>Live Results</h4>
+    <div id="resultsList"></div>
+    <p class="vote-total" id="voteTotal"></p>
+    <button class="vote-reset" id="voteReset">Reset my vote</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'ravens2026_votes';
+  const USER_KEY = 'ravens2026_uservote';
+
+  const picks = {
+    ioane: "Vega Ioane (G, R1.14)",
+    young: "Zion Young (EDGE, R2.45)",
+    lane: "Ja'Kobi Lane (WR, R3.80)",
+    sarratt: "Elijah Sarratt (WR, R4.115)",
+    hibner: "Matthew Hibner (TE, R4.133)",
+    rivers: "Chandler Rivers (CB, R5.162)",
+    cuevas: "Josh Cuevas (TE, R5.173)",
+    randall: "Adam Randall (RB, R5.174)",
+    eckley: "Ryan Eckley (P, R6.211)",
+    benny: "Rayshaun Benny (DT, R7.250)",
+    beerntsen: "Evan Beerntsen (G, R7.253)"
+  };
+
+  function getVotes() {
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (!data) {
+      const init = {};
+      Object.keys(picks).forEach(k => init[k] = 0);
+      return init;
+    }
+    return JSON.parse(data);
+  }
+
+  function saveVotes(votes) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(votes));
+  }
+
+  function getUserVote() {
+    return localStorage.getItem(USER_KEY);
+  }
+
+  function setUserVote(pick) {
+    localStorage.setItem(USER_KEY, pick);
+  }
+
+  function clearUserVote() {
+    const prev = getUserVote();
+    if (prev) {
+      const votes = getVotes();
+      if (votes[prev] > 0) votes[prev]--;
+      saveVotes(votes);
+      localStorage.removeItem(USER_KEY);
+    }
+  }
+
+  function renderResults() {
+    const votes = getVotes();
+    const total = Object.values(votes).reduce((a, b) => a + b, 0);
+    const list = document.getElementById('resultsList');
+    list.innerHTML = '';
+
+    const sorted = Object.entries(votes).sort((a, b) => b[1] - a[1]);
+
+    sorted.forEach(([key, count]) => {
+      const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+      const row = document.createElement('div');
+      row.className = 'result-row';
+      row.innerHTML = `
+        <div class="result-label">${picks[key]}</div>
+        <div class="result-bar-wrap">
+          <div class="result-bar" style="width:${pct}%"></div>
+          <span class="result-count">${count} vote${count === 1 ? '' : 's'} (${pct}%)</span>
+        </div>
+      `;
+      list.appendChild(row);
+    });
+
+    document.getElementById('voteTotal').textContent = `Total votes: ${total}`;
+  }
+
+  function showResults() {
+    document.getElementById('voteOptions').style.display = 'none';
+    document.getElementById('voteResults').style.display = 'block';
+    renderResults();
+  }
+
+  function showOptions() {
+    document.getElementById('voteOptions').style.display = 'grid';
+    document.getElementById('voteResults').style.display = 'none';
+  }
+
+  document.querySelectorAll('.vote-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const pick = this.getAttribute('data-pick');
+      const votes = getVotes();
+      votes[pick] = (votes[pick] || 0) + 1;
+      saveVotes(votes);
+      setUserVote(pick);
+      showResults();
+    });
+  });
+
+  document.getElementById('voteReset').addEventListener('click', function() {
+    clearUserVote();
+    showOptions();
+  });
+
+  if (getUserVote()) {
+    showResults();
+  }
+})();
+</script>
