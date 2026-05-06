@@ -1,0 +1,104 @@
+.vote-widget {
+  margin: 2.5em 0;
+  padding: 1.5em;
+  background: #f4f4f8;
+  border-left: 4px solid #241773;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.vote-widget h3 {
+  margin-top: 0;
+  color: #241773;
+}
+
+.vote-intro {
+  font-size: 0.95em;
+  color: #444;
+  margin-bottom: 1.2em;
+}
+
+.vote-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6em;
+}
+
+.vote-btn {
+  padding: 0.7em 1em;
+  background: #241773;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.vote-btn:hover {
+  background: #9e7c0c;
+}
+
+.vote-results h4 {
+  margin-top: 0;
+  color: #241773;
+}
+
+.result-row {
+  margin-bottom: 0.7em;
+}
+
+.result-label {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 0.2em;
+}
+
+.result-bar-wrap {
+  position: relative;
+  background: #e0e0e8;
+  border-radius: 3px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.result-bar {
+  background: #241773;
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.result-count {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  color: #222;
+  font-weight: 500;
+}
+
+.vote-total {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #555;
+  font-weight: 500;
+}
+
+.vote-reset {
+  margin-top: 0.5em;
+  padding: 0.4em 0.9em;
+  background: transparent;
+  color: #241773;
+  border: 1px solid #241773;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+.vote-reset:hover {
+  background: #241773;
+  color: #fff;
+}
