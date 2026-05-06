@@ -1,0 +1,11 @@
+.git
+.github
+_site
+.jekyll-cache
+.bundle
+vendor
+node_modules
+*.log
+README.md
+docs
+terraform
