@@ -28,6 +28,11 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
+          # Look for linter configs in the repo root, not .github/linters/
+          LINTER_RULES_PATH: "."
+          # Explicitly name the config files so v7 picks them up reliably
+          MARKDOWN_CONFIG_FILE: ".markdownlint.json"
+          DOCKERFILE_HADOLINT_FILE_NAME: ".hadolint.yaml"
           VALIDATE_YAML: true
           VALIDATE_MARKDOWN: true
           VALIDATE_DOCKERFILE_HADOLINT: true
