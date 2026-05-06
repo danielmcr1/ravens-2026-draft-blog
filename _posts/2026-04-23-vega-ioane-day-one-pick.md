@@ -4,6 +4,7 @@ title: "Vega Ioane and a Day One Trenches Bet"
 date: 2026-04-23 21:30:00 +0000
 categories: draft analysis
 ---
+The Ravens are making themselves SB contenders.
 
 The Baltimore Ravens opened the 2026 NFL Draft by selecting Penn State guard Vega Ioane with the fourteenth overall pick. The choice continues a pattern general manager Eric DeCosta has leaned into across recent drafts: when in doubt, fortify the trenches. With first-year head coach Jesse Minter inheriting an offence that leaned heavily on Lamar Jackson's mobility, the front office signalled that the line in front of the quarterback would be rebuilt before any skill position was reinforced.
 
