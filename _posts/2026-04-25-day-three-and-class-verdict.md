@@ -18,3 +18,5 @@ For a roster transitioning to a new head coach, this is a sensible class. It add
 The 2026 season will tell us how much of this analysis survives contact with reality. The draft, on its own merits, was a quietly strong one.
 
 *Sources: Baltimore Ravens (2026); Baltimore Beatdown (2026); College Football News (2026); Pressbox (2026); Pro Football Focus (2026).*
+
+{% include vote-widget.html %}
